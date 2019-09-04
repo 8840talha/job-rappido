@@ -3,15 +3,19 @@ var exphbs = require('express-handlebars');
 const expressip = require('express-ip');
 const axios = require('axios');
 
+
 var app = express();
 // let PORT = process.env.PORT || 3000;
 // app.set("PORT", PORT);
+
+
+app.use(expressip().getIpInfoMiddleware);
 
 app.engine('handlebars', exphbs());
 
 app.set('view engine', 'handlebars');
 app.use(express.static('public'));
-app.use(expressip().getIpInfoMiddleware);
+
 app.get('/', function (req, res) {
   res.render('index', { title: 'Job Rappido' });
 });
@@ -22,10 +26,10 @@ app.get('/search', function (req, res) {
   let url = `https://indreed.herokuapp.com/api/jobs`;
   if (queries) {
     axios.get(url, {
-      params: req.ipInfo.country+queries
+      params: queries
     })
       .then(function (response) {
-        res.render("search", { title: "Job Rappido", jobs: response.data ,countryCode:req.ipInfo});
+        res.render("search", { title: "Job Rappido", jobs: response.data});
 
 
       })
@@ -42,10 +46,10 @@ app.get('/search', function (req, res) {
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-    port = 3000;
+  port = 3000;
 }
 
 
 app.listen(port, function () {
-    console.log('Server started');
+  console.log('Server started');
 });

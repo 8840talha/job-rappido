@@ -10,13 +10,13 @@
   "license": "ISC",
   "engines": {
     "node": "8.10.0"
-    
   },
   "dependencies": {
     "axios": "^0.18.1",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "express-hbs": "^2.1.2",
-    "express-ip": "^1.0.3"
+    "express-ip": "^1.0.3",
+    "ip": "^1.1.5"
   }
 }

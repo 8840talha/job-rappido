@@ -5,8 +5,9 @@ const axios = require('axios');
 
 
 var app = express();
-// let PORT = process.env.PORT || 3000;
-// app.set("PORT", PORT);
+
+
+
 
 
 app.use(expressip().getIpInfoMiddleware);
@@ -17,7 +18,7 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-  res.render('index', { title: 'Job Rappido' });
+  res.render('index', { title: 'Job Rappido',country:req.ipInfo.country});
 });
 
 app.get('/search', function (req, res) {
@@ -29,7 +30,7 @@ app.get('/search', function (req, res) {
       params: queries
     })
       .then(function (response) {
-        res.render("search", { title: "Job Rappido", jobs: response.data});
+        res.render("search", { title: "Job Rappido", jobs: response.data });
 
 
       })

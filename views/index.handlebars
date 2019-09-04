@@ -14,11 +14,11 @@
     <hr>
 
     <form action="search" method="GET">
-
+          <input type="hidden" name="country" value="{{country}}">
         <input type="text" name="q" class="input1" placeholder="Job Title">
 
         <input type="text" name="l" class="input2" placeholder="Job Location">
-        <input type="hidden" name={{country}}>
+       
         <button type="submit" class="btn btn-primary" style="height: 30px; width:50px;">Search</button>
     </form>
 

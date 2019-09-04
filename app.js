@@ -22,7 +22,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/search', function (req, res) {
-  queries = req.ipInfo+""+req.query;
+  queries = req.query;
 
   let url = `https://indreed.herokuapp.com/api/jobs?`;
   if (queries) {

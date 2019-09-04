@@ -30,7 +30,7 @@ app.get('/search', function (req, res) {
       params: queries
     })
       .then(function (response) {
-        res.render("search", { title: "Job Rappido", jobs: response.data });
+        res.render("search", { title: "Job Rappido", jobs: response.data,country:req.ipInfo.country });
 
 
       })
@@ -39,7 +39,7 @@ app.get('/search', function (req, res) {
       });
   }
   else {
-    res.render("search", { title: "Job Rappido" })
+    res.render("search", { title: "Job Rappido",country:req.ipInfo.country })
   }
 
 

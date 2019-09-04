@@ -1,0 +1,40 @@
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: blue">
+    <a class="navbar-brand" href="/" style="font-size: 30px; color:black">{{title}} ({{ countryCode }}) </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+
+<main role="main">
+
+    <hr>
+   
+        <form method="GET">
+            <input type="text" name="q" class="input1" placeholder="Job Title">
+            <input type="text" name="l" class="input2" placeholder="Job Location">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+   
+</main>
+<hr>
+<div class="row">
+    {{# each jobs }}
+      <div class="col-md-4">
+        <h2>{{ this.title }}</h2>
+        <p>{{ this.summary }}</p>
+        <p><a class="btn btn-primary" href={{ this.url }} role="button">View&raquo;</a></p>
+      </div>
+    {{/each}}  
+    
+      </div>
+<hr>
+<div class="footer jumbotron" style="background-color:blue">
+    <footer class="container">
+        <p>&copy;Talha Parvez</p>
+          <button class="btn btn-primary" style="color: black; float:right;margin-left:5px" href="https://github.com/8840talha">Github</button>
+        <button class="btn btn-primary" style="color: black; float:right;  " href="https://www.linkedin.com/in/talha-parvez-5375b815b/">Linked In</button>
+    </footer>
+</div>

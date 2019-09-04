@@ -1,0 +1,43 @@
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+body {
+    padding-top: 3.5rem;
+  }
+one{
+      
+    text-align: center;
+    width: 100%;
+}
+label{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 30px;
+    padding:10px;
+}
+/* .input1{
+    width: 30%;
+    height:40px;
+     border-radius: 2px;
+outline:none;
+    }
+.input2{
+    width: 30%;
+    height: 40px;
+    border-radius: 2px;
+    outline: none;
+} */
+input[type="text"]{
+    margin-top: 15px;
+    text-align: center;
+    height: 50px;
+    top:10px;
+    border-bottom:1px solid black;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 200;
+    width: 313px;
+    outline: none;
+}
+input[type="text"]:focus{
+    outline: none;
+
+}

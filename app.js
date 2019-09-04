@@ -8,10 +8,10 @@ var app = express();
 // app.set("PORT", PORT);
 
 app.engine('handlebars', exphbs());
-app.use(expressip().getIpInfoMiddleware);
+
 app.set('view engine', 'handlebars');
 app.use(express.static('public'));
-
+app.use(expressip().getIpInfoMiddleware);
 app.get('/', function (req, res) {
   res.render('index', { title: 'Job Rappido' });
 });
@@ -22,7 +22,7 @@ app.get('/search', function (req, res) {
   let url = `https://indreed.herokuapp.com/api/jobs`;
   if (queries) {
     axios.get(url, {
-      params: queries
+      params: req.ipInfo.country+queries
     })
       .then(function (response) {
         res.render("search", { title: "Job Rappido", jobs: response.data ,countryCode:req.ipInfo});
